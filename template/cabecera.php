@@ -10,7 +10,7 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-expand navbar-light bg-light"> <!-- Barra de menu -->
+    <nav class="navbar navbar-expand navbar-dark bg-dark"> <!-- Barra de menu -->
         <ul class="nav navbar-nav">
             
             <li class="nav-item">

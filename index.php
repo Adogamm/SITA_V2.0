@@ -9,9 +9,12 @@
 <div class="col-md-4"> <!-- divide la pantalla en 3 elementos de 4 espacios de 12, cada uno -->
 <div class="card"> <!-- tarjetas para presentar las secciones -->
 <div class="card-body">
-    <h4 class="card-title">Administrador</h4>
+    <h4 class="card-title, col text-center">Administrador</h4>
     <img class="card-img-top" src="img/admin.png" alt="">
-    <a name="" id="" class="btn btn-primary" href="administrador.php" role="button">Entrar</a>
+    <div class="col text-center">
+    </br>
+        <a name="" id="" class="btn btn-primary" href="administrador.php" role="button">Entrar</a>
+    </div>
 </div>
 </div>
 </div>
@@ -19,9 +22,12 @@
 <div class="col-md-4"> <!-- divide la pantalla en 3 elementos de 4 espacios de 12, cada uno -->
 <div class="card"> <!-- tarjetas para presentar las secciones -->
 <div class="card-body">
-    <h4 class="card-title">Recursos Humanos</h4>
+    <h4 class="card-title, col text-center">Recursos Humanos</h4>
     <img class="card-img-top" src="img/recuhum.png" alt="">
-    <a name="" id="" class="btn btn-primary" href="recursos_humanos.php" role="button">Entrar</a>
+    <div class="col text-center">
+</br>
+        <a name="" id="" class="btn btn-primary" href="recursos_humanos.php" role="button">Entrar</a>
+    </div>
 </div>
 </div>
 </div>
@@ -29,9 +35,12 @@
 <div class="col-md-4"> <!-- divide la pantalla en 3 elementos de 4 espacios de 12, cada uno -->
 <div class="card"> <!-- tarjetas para presentar las secciones -->
 <div class="card-body">
-    <h4 class="card-title">Academico</h4>
+    <h4 class="card-title, col text-center">Academico</h4>
     <img class="card-img-top" src="img/academ.png" alt="">
-    <a name="" id="" class="btn btn-primary" href="academicos.php" role="button">Entrar</a>
+    <div class="col text-center">
+    </br>
+        <a name="" id="" class="btn btn-primary" href="academicos.php" role="button">Entrar</a>
+    </div>
 </div>
 </div>
 </div>
