@@ -42,6 +42,25 @@
 
     Tabla de academicos (Muestra los datos de los academicos)
 
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Imagen</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2</td>
+                <td>Aprende php</td>
+                <td>imagen.jpg</td>
+                <th>Seleccionar | Borrar</th>
+            </tr>
+        </tbody>
+    </table>
+
 </div>
 
 <?php include("../template/pie.php"); ?>
