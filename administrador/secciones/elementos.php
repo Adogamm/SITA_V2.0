@@ -11,6 +11,23 @@ echo $txtID."<br/>";
 echo $txtNombre."<br/>";
 echo $txtImagen."<br/>";
 echo $accion."<br/>";
+
+switch($accion){
+
+    case "Agregar":
+        echo "Presionado el boton Agregar";
+    break;
+
+    case "Modificar":
+        echo "Presionado el boton Modificar";
+    break;
+
+    case "Cancelar":
+        echo "Presionado el boton Cancelar";
+    break;
+
+}
+
 ?>
 
 <div class="col-md-5">
