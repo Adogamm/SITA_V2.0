@@ -14,8 +14,6 @@ switch($accion){
         $sentenciaSQL->bindParam(':nombre',$txtNombre);
         $sentenciaSQL->bindParam(':imagen',$txtImagen);
         $sentenciaSQL->execute();
-        echo "Presionado el boton Agregar";
-        //INSERT INTO `elementos` (`id`, `nombre`, `imagen`) VALUES (NULL, 'ejemplo_1', 'imagen_ejemplo1.jpg');
     break;
 
     case "Modificar":
@@ -27,6 +25,11 @@ switch($accion){
     break;
 
 }
+
+$sentenciaSQL= $conexion->prepare("SELECT * FROM elementos");
+$sentenciaSQL->execute();
+$listaElementos=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
+
 
 ?>
 
@@ -82,12 +85,14 @@ switch($accion){
             </tr>
         </thead>
         <tbody>
+            <?php foreach($listaElementos as $elementos){?>
             <tr>
-                <td>2</td>
-                <td>Aprende php</td>
-                <td>imagen.jpg</td>
+                <td><?php echo $elementos['id']; ?></td>
+                <td><?php echo $elementos['nombre']; ?></td>
+                <td><?php echo $elementos['imagen']; ?></td>
                 <th>Seleccionar | Borrar</th>
             </tr>
+            <?php } ?>
         </tbody>
     </table>
 
