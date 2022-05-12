@@ -16,6 +16,7 @@ switch($accion){
 
     case "Agregar":
         echo "Presionado el boton Agregar";
+        //INSERT INTO `elementos` (`id`, `nombre`, `imagen`) VALUES (NULL, 'ejemplo_1', 'imagen_ejemplo1.jpg');
     break;
 
     case "Modificar":
