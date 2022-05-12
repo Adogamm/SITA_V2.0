@@ -2,32 +2,17 @@
 <?php
 $txtID=(isset($_POST['txtID']))?$_POST['txtID']:""; //ID
 $txtNombre=(isset($_POST['txtNombre']))?$_POST['txtNombre']:""; //Nombre
-
 $txtImagen=(isset($_FILES['txtImagen']['name']))?$_FILES['txtImagen']['name']:""; //Imagen
-
 $accion=(isset($_POST['accion']))?$_POST['accion']:""; //Boton de accion
 
-echo $txtID."<br/>";
-echo $txtNombre."<br/>";
-echo $txtImagen."<br/>";
-echo $accion."<br/>";
-
-$host="localhost";
-$bd="SITAv2";
-$usuario="root";
-$contrasenia="";
-
-try {
-    $conexion=new PDO("mysql:host=$host;dbname=$bd",$usuario,$contrasenia);
-    if($conexion){ echo "Conectado... a sistema";}
-} catch ( Exception $ex){
-    echo $ex->getMessage();
-}
+include("../config/bd.php");
 
 switch($accion){
 
     case "Agregar":
-        $sentenciaSQL= $conexion->prepare("INSERT INTO `elementos` (`id`, `nombre`, `imagen`) VALUES (NULL, 'ejemplo_1', 'imagen_ejemplo1.jpg');");
+        $sentenciaSQL= $conexion->prepare("INSERT INTO elementos(nombre,imagen) VALUES (:nombre,:imagen);");
+        $sentenciaSQL->bindParam(':nombre',$txtNombre);
+        $sentenciaSQL->bindParam(':imagen',$txtImagen);
         $sentenciaSQL->execute();
         echo "Presionado el boton Agregar";
         //INSERT INTO `elementos` (`id`, `nombre`, `imagen`) VALUES (NULL, 'ejemplo_1', 'imagen_ejemplo1.jpg');
