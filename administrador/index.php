@@ -1,8 +1,16 @@
 <?php
+session_start();
 if($_POST){
-    header('Location:inicio.php');
-}
-?>
+    if(($_POST['usuario']=="admin")&&($_POST['contrasenia']=="sistema")){
+        $_SESSION['usuario']="ok";
+        $_SESSION['nombreUsuario']="Administrador";
+        header('Location:inicio.php');
+    } else {
+        $mensaje="Error: El usuario y/o contraseña son incorrectos";
+    }
+
+} ?>
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -25,6 +33,12 @@ if($_POST){
                         </div>
                         <div class="card-body">
 
+                            <?php if(isset($mensaje)) {?>
+                            <div class="alert alert-danger" role="alert">
+                                <?php echo $mensaje; ?>
+                            </div>
+                            <?php } ?>
+
                             <form method="POST">
 
                                 <div class="form-group">
@@ -34,7 +48,7 @@ if($_POST){
 
                                 <div class="form-group">
                                     <label>Contraseña</label>
-                                    <input type="password" class="form-control" name="contrasena" placeholder="Escribe tu contraseña">
+                                    <input type="password" class="form-control" name="contrasenia" placeholder="Escribe tu contraseña">
                                 </div>
                                 <button type="submit" class="btn btn-primary">Acceder</button>
 
