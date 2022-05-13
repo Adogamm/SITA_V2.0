@@ -25,7 +25,14 @@ switch($accion){
     break;
     
     case "Seleccionar":
-        echo "Presionado el boton Seleccionar";
+        $sentenciaSQL= $conexion->prepare("SELECT * FROM elementos WHERE id=:id");
+        $sentenciaSQL->bindParam(':id',$txtID);
+        $sentenciaSQL->execute();
+        $elemento=$sentenciaSQL->fetch(PDO::FETCH_LAZY);
+
+        $txtNombre=$elemento['nombre'];
+        $txtImagen=$elemento['imagen'];
+        //echo "Presionado el boton Seleccionar";
     break;
 
     case "Borrar":
@@ -57,16 +64,19 @@ $listaElementos=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
             <form method="POST" enctype="multipart/form-data">
 
                 <div class = "form-group">
-                    <label for="exampleInputEmail1">ID</label>
-                    <input type="text" class="form-control" name="txtID" id="txtID" placeholder="ID">
+                    <label for="txtID">ID</label>
+                    <input type="text" class="form-control" value="<?php echo $txtID; ?>" name="txtID" id="txtID" placeholder="ID">
                 </div>
                 <div class = "form-group">
-                    <label for="exampleInputEmail1">Nombre</label>
-                    <input type="text" class="form-control" name="txtNombre" id="txtNombre" placeholder="Nomb">
+                    <label for="txtNombre">Nombre</label>
+                    <input type="text" class="form-control" value="<?php echo $txtNombre; ?>" name="txtNombre" id="txtNombre" placeholder="Nomb">
                 </div>
                 <div class = "form-group">
-                    <label for="exampleInputEmail1">Imagen</label>
-                    <input type="file" class="form-control" name="txtImagen" id="txtImagen" placeholder="imagen">
+                    <label for="txtImagen">Imagen</label>
+
+                    <?php echo $txtImagen; ?>
+
+                    <input type="file" class="form-control" value="<?php echo $txtImagen; ?>" name="txtImagen" id="txtImagen" placeholder="imagen">
                 </div>
 
                 <div class="btn-group" role="group" aria-label="">
