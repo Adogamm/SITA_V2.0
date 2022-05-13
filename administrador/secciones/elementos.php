@@ -56,10 +56,23 @@ switch($accion){
     break;
 
     case "Borrar":
+        
+        $sentenciaSQL= $conexion->prepare("SELECT * FROM elementos WHERE id=:id");
+        $sentenciaSQL->bindParam(':id',$txtID);
+        $sentenciaSQL->execute();
+        $elemento=$sentenciaSQL->fetch(PDO::FETCH_LAZY);
+
+        if(isset($elemento["imagen"]) &&($elemento["imagen"]!="imagen.jpg") ){
+            
+            if(file_exists("../../img/".$elemento["imagen"])){
+                unlink("../../img/".$elemento["imagen"]);
+            }
+        }
+
         $sentenciaSQL= $conexion->prepare("DELETE FROM elementos WHERE id=:id");
         $sentenciaSQL->bindParam(':id',$txtID);
         $sentenciaSQL->execute();
-        //echo "Presionado el boton Borrar";
+        
     break;
 
 }
