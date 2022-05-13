@@ -14,14 +14,14 @@ $listaElementos=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
             </div>
 
             <?php foreach($listaElementos as $elemento) { ?>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <div class="card">
                         <img class="card-img-top" src="./img/<?php echo $elemento['imagen'];?>" alt="">
                         <div class="card-body">
                             <h4 class="card-title"><?php echo $elemento['nombre'];?></h4>
                             <div class="col text-center">
                                 </br>
-                                <a name="" id="" class="btn btn-primary" href="administrador.php" role="button">Entrar</a>
+                                <a name="" id="" class="btn btn-primary" href="#" role="button">Entrar</a>
                             </div>
                         </div>
                     </div>
