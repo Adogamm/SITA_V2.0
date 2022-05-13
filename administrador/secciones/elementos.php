@@ -105,7 +105,7 @@ $listaElementos=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
 
 <div class="col-md-5">
 
-    Formulario de agregar academico
+    <!-- Formulario de agregar academico -->
 
     <div class="card">
         <div class="card-header">
@@ -126,7 +126,15 @@ $listaElementos=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
                 <div class = "form-group">
                     <label for="txtImagen">Imagen</label>
 
-                    <?php echo $txtImagen; ?>
+                    </br>
+
+                    <div align="center">
+                    <?php if($txtImagen!=""){ ?>
+
+                        <img class="img-thumbnail rounded" src="../../img/<?php echo $txtImagen; ?>" width="100" alt="" srcset="">
+
+                        <?php } ?>
+                    </div>
 
                     <input type="file" class="form-control" value="<?php echo $txtImagen; ?>" name="txtImagen" id="txtImagen" placeholder="imagen">
                 </div>
@@ -146,7 +154,7 @@ $listaElementos=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
 
 <div class="col-md-7">
 
-    Tabla de academicos (Muestra los datos de los academicos)
+    <!-- Tabla de academicos (Muestra los datos de los academicos) -->
 
     <table class="table table-bordered">
         <thead>
@@ -162,7 +170,12 @@ $listaElementos=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
             <tr>
                 <td><?php echo $elementos['id']; ?></td>
                 <td><?php echo $elementos['nombre']; ?></td>
-                <td><?php echo $elementos['imagen']; ?></td>
+                <td>
+                    
+                    <div align="center">
+                        <img class="img-thumbnail rounded" src="../../img/<?php echo $elementos['imagen']; ?>" width="100" alt="" srcset="">
+                    </div>
+                </td>
                 
                 <td>
 
