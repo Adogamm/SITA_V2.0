@@ -33,9 +33,28 @@ switch($accion){
         $sentenciaSQL->execute();
 
         if($txtImagen!=""){
+
+            $fecha= new DateTime();
+            $nombreArchivo=($txtImagen!="")?$fecha->getTimestamp()."_".$_FILES["txtImagen"]["name"]:"imagen.jpg";
+            $tmpImagen=$_FILES["txtImagen"]["tmp_name"];
+            
+            move_uploaded_file($tmpImagen,"../../img/".$nombreArchivo);
+
+            $sentenciaSQL= $conexion->prepare("SELECT * FROM elementos WHERE id=:id");
+            $sentenciaSQL->bindParam(':id',$txtID);
+            $sentenciaSQL->execute();
+            $elemento=$sentenciaSQL->fetch(PDO::FETCH_LAZY);
+
+            if(isset($elemento["imagen"]) &&($elemento["imagen"]!="imagen.jpg") ){
+                
+                if(file_exists("../../img/".$elemento["imagen"])){
+                    unlink("../../img/".$elemento["imagen"]);
+                }
+            }
+
             $sentenciaSQL= $conexion->prepare("UPDATE elementos SET imagen=:imagen WHERE id=:id");
             $sentenciaSQL->bindParam(':id',$txtID);
-            $sentenciaSQL->bindParam(':imagen',$txtImagen);
+            $sentenciaSQL->bindParam(':imagen',$nombreArchivo);
             $sentenciaSQL->execute();
         }
     break;
