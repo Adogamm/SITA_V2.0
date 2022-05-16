@@ -8,7 +8,7 @@
             <hr class="my-2">
             <p>More info</p>
             <p class="lead">
-              <a class="btn btn-primary btn-lg" href="secciones/elementos.php" role="button">Administrar academicos</a>
+              <a class="btn btn-primary btn-lg" href="secciones/editElementos.php" role="button">Administrar academicos</a>
             </p>
           </div>
 
