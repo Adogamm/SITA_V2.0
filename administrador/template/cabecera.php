@@ -25,7 +25,8 @@ if(!isset($_SESSION['usuario'])){
       <div class="nav navbar-nav">
         <a class="nav-item nav-link active" href="#">Administrador del sitio <span class="sr-only">(current)</span></a>
         <a class="nav-item nav-link" href="<?php echo $url;?>/administrador/inicio.php">Inicio</a>
-        <a class="nav-item nav-link" href="<?php echo $url;?>/administrador/secciones/elementos.php">Academicos</a>
+        <a class="nav-item nav-link" href="<?php echo $url;?>/administrador/secciones/verElementos.php">Ver Academicos</a>
+        <a class="nav-item nav-link" href="<?php echo $url;?>/administrador/secciones/editElementos.php">Editar Academicos</a>
         <a class="nav-item nav-link" href="<?php echo $url;?>/administrador/secciones/cerrar.php">Cerrar</a>
         <a class="nav-item nav-link" href="<?php echo $url; ?>">Ver sitio web</a>
       </div>

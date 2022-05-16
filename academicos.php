@@ -21,7 +21,7 @@ $listaElementos=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
                             <h4 class="card-title"><?php echo $elemento['nombre'];?></h4>
                             <div class="col text-center">
                                 </br>
-                                <a name="" id="" class="btn btn-primary" href="administrador/secciones/elementos.php" role="button">Editar</a>
+                                <a name="" id="" class="btn btn-primary" href="administrador/secciones/editElementos.php" role="button">Editar</a>
                             </div>
                         </div>
                     </div>
