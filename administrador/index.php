@@ -6,7 +6,6 @@ $decision=(isset($_POST['decision']))?$_POST['decision']:""; //Boton de decision
 switch($decision){
 
     case "acceder":
-
         session_start();
         if($_POST){
             if(($_POST['usuario']=="admin")&&($_POST['contrasenia']=="sistema")){
@@ -64,10 +63,8 @@ switch($decision){
                                     <input type="password" class="form-control" name="contrasenia" placeholder="Escribe tu contraseña">
                                 </div>
                                 </br>
-                                <div class="btn-group" role="group" aria-label="">
                                 <button type="submit" name="decision" value="acceder" class="btn btn-primary">Acceder</button>
-                                <button type="submit" name="decision" value="cancelar" class="btn btn-danger">Cancelar</button>
-                                </div>
+                                <button type="submit" name="decision" value="cancelar" class="btn btn-danger" style="float: right;">Cancelar</button>
 
                             </form>
 

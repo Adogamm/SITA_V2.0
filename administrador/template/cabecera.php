@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['usuario'])){
-  header("Location:../administrador/index.php");
+  header("Location:../../../SITA_V2.0/administrador/index.php");
 } else {
   if($_SESSION['usuario']=="ok"){
     $nombreUsuario=$_SESSION["nombreUsuario"];
