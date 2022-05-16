@@ -1,15 +1,28 @@
 <?php
-session_start();
-if($_POST){
-    if(($_POST['usuario']=="admin")&&($_POST['contrasenia']=="sistema")){
-        $_SESSION['usuario']="ok";
-        $_SESSION['nombreUsuario']="Administrador";
-        header('Location:inicio.php');
-    } else {
-        $mensaje="Error: El usuario y/o contraseña son incorrectos";
-    }
+$decision=(isset($_POST['decision']))?$_POST['decision']:""; //Boton de decision
+?>
 
-} ?>
+<?php
+switch($decision){
+
+    case "acceder":
+
+        session_start();
+        if($_POST){
+            if(($_POST['usuario']=="admin")&&($_POST['contrasenia']=="sistema")){
+                $_SESSION['usuario']="ok";
+                $_SESSION['nombreUsuario']="Administrador";
+                header('Location:inicio.php');
+            } else {
+                $mensaje="Error: El usuario y/o contraseña son incorrectos";
+            }
+        }
+    break;
+
+    case "cancelar":
+        header('Location:../index.php');
+    break;
+}?>
 
 <!doctype html>
 <html lang="en">
@@ -39,7 +52,7 @@ if($_POST){
                             </div>
                             <?php } ?>
 
-                            <form method="POST">
+                            <form method="POST" enctype="multipart/form-data">
 
                                 <div class="form-group">
                                     <label>Usuario</label>
@@ -50,7 +63,11 @@ if($_POST){
                                     <label>Contraseña</label>
                                     <input type="password" class="form-control" name="contrasenia" placeholder="Escribe tu contraseña">
                                 </div>
-                                <button type="submit" class="btn btn-primary">Acceder</button>
+                                </br>
+                                <div class="btn-group" role="group" aria-label="">
+                                <button type="submit" name="decision" value="acceder" class="btn btn-primary">Acceder</button>
+                                <button type="submit" name="decision" value="cancelar" class="btn btn-danger">Cancelar</button>
+                                </div>
 
                             </form>
 
