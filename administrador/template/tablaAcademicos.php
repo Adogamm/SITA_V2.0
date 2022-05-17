@@ -23,9 +23,10 @@
             if(isset($_GET['enviar'])) {
                 $busqueda = $_GET['busqueda'];
                 $sentenciaSQL= $conexion->query("SELECT * FROM elementos WHERE nombre LIKE '%$busqueda%'");
-                while ($row = $sentenciaSQL->fetch(PDO::FETCH_LAZY)) { ?>
-                    <td><?php echo $elementos['id']; ?></td>
-                    <td><?php echo $elementos['nombre']; ?></td>
+                while ($elementos = $sentenciaSQL->fetch(PDO::FETCH_LAZY)) { ?>
+                    inicio del registro
+                    <td><?php echo $elementos ['id']; ?></td>
+                    <td><?php echo $elementos ['nombre']; ?></td>
                     <td>
                         <div align="center">
                             <img class="img-thumbnail rounded" src="../../img/<?php echo $elementos['imagen']; ?>" width="100" alt="" srcset="">
@@ -33,12 +34,13 @@
                     </td>
                     <td>
                         <form method="post">
-                            <input type="hidden" name="txtID" value="<?php echo $elementos['id']; ?>" />
+                            <input type="hidden" name="txtID" value="<?php echo $elementos['id'] ; ?>" />
                             <input type="submit" name="accion" value="Seleccionar" class="btn btn-primary"/>
                             <input type="submit" name="accion" value="Borrar" class="btn btn-danger"/>
                         </form>
                     </td>
-                    <?php } ?>
+                    fin del registro
+                <?php } ?>
             <?php } ?>
         <?php } ?>
     </tbody>
